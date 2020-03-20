@@ -1,0 +1,63 @@
+<%- include('partials/_header.ejs') %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ">
+                <form action="/search" method="POST">
+                    Id: <input name="_id" type="text">
+                    <button type="submit" class="btn btn-info">Search</button>
+                </form>
+                <form action="/search" method="POST">
+                    First Name: <input name="First_Name" type="text">
+                    <button type="submit" class="btn btn-info">Search</button>
+                </form>
+                <form action="/search" method="POST">
+                    Country: <input name="Country" type="text">
+                    <button type="submit" class="btn btn-info">Search</button>
+                </form>
+                <form action="/searchD" method="POST">
+                    Deleted by Id: <input name="_id" type="text">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <form action="/searchD" method="POST">
+                    Deleted by Name: <input name="First_Name" type="text">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+            </div>
+        </div>
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>Country</th>
+                                <th>District</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let i = 0; i < tasks.length; i++) { %>
+                                <tr>
+                                    <td><%= tasks[i]._id %> </td>
+                                    <td><%= tasks[i].Address %> </td>
+                                    <td><%= tasks[i].City %> </td>
+                                    <td><%= tasks[i].Country %> </td>
+                                    <td><%= tasks[i].District %> </td>
+                                    <td><%= tasks[i].First_Name %> </td>
+                                    <td><%= tasks[i].Last_Name %> </td>
+                                    <th><%= tasks[i].Status %></th>
+                                </tr>
+                            <%}%> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+<%- include('partials/_footer') %>
